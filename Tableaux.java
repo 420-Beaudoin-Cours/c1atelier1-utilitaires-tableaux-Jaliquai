@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * @author France Beaudoin
  */
@@ -32,12 +34,48 @@ public class Tableaux {
         for (int i=0; i<tab.length-1; i++){
             imin = i;
             for (int j=i+1; j<tab.length; j++){
-                if (Integer.parseInt(tab[j]) < Integer.parseInt(tab[imin]))
-                    imin = j;
+                if (Integer.parseInt(tab[j]) > Integer.parseInt(tab[imin]))
+                    imin = i;
             }
             if (imin != i)
                 permute(tab, i, imin);
-            //AAAAA
         }
+    }
+
+    public static void trierDecroissantSSS(int[] tab){
+        int imax;
+        for (int i=0; i < tab.length-1; i++){
+            imax = i;
+            for (int j=i + 1; j< tab.length; j++){
+                if (tab[j] > tab[imax])
+                    imax = j;
+            }
+            if (imax != i)
+                permute(tab, i, imax);
+        }
+    }
+
+    public static void print(int[] tab){
+        System.out.println(Arrays.toString(tab));
+
+    }
+
+    public static int maximum(int[] tab){
+        int max = tab[0];
+        for (int i = 0; i < tab.length; i++){
+            if (tab[i] > max)
+            max = tab[i];
+
+        }
+        return max;
+    }
+
+    public static int minimum(int[] tab){
+        int min = tab[0];
+        for (int i = 0; i < tab.length; i++){
+            if (tab[i] < min)
+                min = tab[i];
+        }
+        return min;
     }
 }
