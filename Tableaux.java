@@ -37,6 +37,7 @@ public class Tableaux {
             }
             if (imin != i)
                 permute(tab, i, imin);
+            //AAAAA
         }
     }
 }
